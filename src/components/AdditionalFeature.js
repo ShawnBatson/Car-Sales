@@ -1,4 +1,8 @@
-import React from 'react';
+import React from "react";
+import { connect } from "react-redux";
+import { addFeature } from "../actions/addFeatureAction";
+
+const handleClickAdd = {};
 
 const AdditionalFeature = props => {
   return (
@@ -9,5 +13,14 @@ const AdditionalFeature = props => {
     </li>
   );
 };
+
+// const mapStateToProps = state => {
+//   console.log("mapStateToProps in additional(remove) Feature", state);
+//   return {
+//     feature: state.appReducer.feature
+//   };
+// };
+
+// export default connect(mapStateToProps, { addFeature })(AdditionalFeature);
 
 export default AdditionalFeature;
