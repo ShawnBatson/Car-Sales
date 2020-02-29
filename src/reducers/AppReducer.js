@@ -17,5 +17,8 @@ export const initialState = {
 
 export const appReducer = (state = initialState, action) => {
   console.log("inside App Reducer on appRecuder.js", state);
-  return state;
+  switch (action.type) {
+    default:
+      return state;
+  }
 };
