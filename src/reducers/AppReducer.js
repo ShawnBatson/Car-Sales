@@ -16,8 +16,51 @@ export const initialState = {
 };
 
 export const appReducer = (state = initialState, action) => {
-  console.log("inside App Reducer on appRecuder.js", state);
+  // console.log("inside App Reducer on appRecuder.js", state);
   switch (action.type) {
+    case "ADD_FEATURE":
+      const findFeature = state.store.find(item => {
+        return item.id === action.payload.id;
+      });
+
+      console.log("ADD FEATURE findFeature", findFeature);
+
+      const filterFeature = state.store.filter(item => {
+        return item.id !== findFeature.id;
+      });
+
+      console.log(filterFeature);
+
+      return {
+        ...state,
+
+        additionalPrice: (state.additionalPrice += action.payload.price),
+
+        car: {
+          ...state.car,
+          features: [...state.car.features, action.payload]
+        },
+
+        additionalFeatures: [...filterFeature]
+      };
+
+    case "REMOVE_FEATURE":
+      const chosenFeature = state.car.features.find(item => {
+        return item.id === action.payload.id;
+      });
+      const alteredArrayFeatures = state.car.features.filter(item => {
+        return item.id !== chosenFeature.id;
+      });
+      return {
+        ...state,
+
+        additionalPrice: (state.additionalPrice -= action.payload.price),
+
+        car: { ...state.car, features: [...alteredArrayFeatures] },
+
+        additionalFeatuers: [...state.additionalFeatures, action.payload]
+      };
+
     default:
       return state;
   }
