@@ -21,13 +21,15 @@ const AddedFeatures = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    id: state.id,
-    item: state.name
-    //this may need to change. I'm not sure where the state is going
-  };
-};
-export default connect(mapStateToProps, { remFeature })(AddedFeatures);
+export default AddedFeatures;
 
-//object inside connect object is an action object from a separate file.
+// const mapStateToProps = state => {
+//   return {
+//     id: state.id,
+//     item: state.name
+//     //this may need to change. I'm not sure where the state is going
+//   };
+// };
+// export default connect(mapStateToProps, { remFeature })(AddedFeatures);
+
+// //object inside connect object is an action object from a separate file.

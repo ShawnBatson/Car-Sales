@@ -12,7 +12,11 @@ const AdditionalFeatures = props => {
       {props.additionalFeatures.length ? (
         <ol type="1">
           {props.additionalFeatures.map(item => (
-            <AdditionalFeature key={item.id} feature={item} />
+            <AdditionalFeature
+              addFeature={props.buyItem}
+              key={item.id}
+              feature={item}
+            />
           ))}
         </ol>
       ) : (
@@ -21,7 +25,6 @@ const AdditionalFeatures = props => {
     </div>
   );
 };
-
 const mapStateToProps = state => {
   return {
     id: state.additionalFeatures.id
@@ -29,5 +32,4 @@ const mapStateToProps = state => {
   };
 };
 export default connect(mapStateToProps, { addFeature })(AdditionalFeatures);
-
 //object inside connect object is an action object from a separate file.

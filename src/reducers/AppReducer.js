@@ -14,36 +14,30 @@ export const initialState = {
     { id: 4, name: "Rear spoiler", price: 250 }
   ]
 };
-
 export const appReducer = (state = initialState, action) => {
   // console.log("inside App Reducer on appRecuder.js", state);
   switch (action.type) {
     case "ADD_FEATURE":
-      const findFeature = state.store.find(item => {
+      const findFeature = state.additionalFeatures.find(item => {
         return item.id === action.payload.id;
       });
-
       console.log("ADD FEATURE findFeature", findFeature);
-
-      const filterFeature = state.store.filter(item => {
-        return item.id !== findFeature.id;
+      const filterFeature = state.additionalFeatures.filter(item => {
+        return findFeature.id !== item.id;
       });
-
-      console.log(filterFeature);
-
+      console.log(
+        "this is in filterFeature. I need to see this",
+        filterFeature
+      );
       return {
         ...state,
-
         additionalPrice: (state.additionalPrice += action.payload.price),
-
         car: {
           ...state.car,
           features: [...state.car.features, action.payload]
         },
-
         additionalFeatures: [...filterFeature]
       };
-
     case "REMOVE_FEATURE":
       const chosenFeature = state.car.features.find(item => {
         return item.id === action.payload.id;
@@ -53,14 +47,10 @@ export const appReducer = (state = initialState, action) => {
       });
       return {
         ...state,
-
         additionalPrice: (state.additionalPrice -= action.payload.price),
-
         car: { ...state.car, features: [...alteredArrayFeatures] },
-
         additionalFeatures: [...state.additionalFeatures, action.payload]
       };
-
     default:
       return state;
   }
