@@ -8,12 +8,13 @@ import { remFeature, addFeature } from "./actions/actionFile";
 
 const App = props => {
   const removeFeature = item => {
-    props.addFeature(item);
+    props.remFeature(item);
     // dispatch an action here to remove an item
   };
 
   const buyItem = item => {
-    props.remFeature(item);
+    console.log("this is in buyItems", props.addFeature(item));
+    props.addFeature(item);
     // dipsatch an action here to add an item
   };
 

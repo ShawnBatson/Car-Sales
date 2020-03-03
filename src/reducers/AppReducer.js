@@ -58,7 +58,7 @@ export const appReducer = (state = initialState, action) => {
 
         car: { ...state.car, features: [...alteredArrayFeatures] },
 
-        additionalFeatuers: [...state.additionalFeatures, action.payload]
+        additionalFeatures: [...state.additionalFeatures, action.payload]
       };
 
     default:

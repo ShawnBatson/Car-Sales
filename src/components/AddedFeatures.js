@@ -1,6 +1,5 @@
 import React from "react";
 import AddedFeature from "./AddedFeature";
-
 import { remFeature } from "../actions/actionFile";
 import { connect } from "react-redux";
 
@@ -24,8 +23,8 @@ const AddedFeatures = props => {
 
 const mapStateToProps = state => {
   return {
-    id: state.additionalFeatures.id,
-    item: state.additionalFeatures.name
+    id: state.id,
+    item: state.name
     //this may need to change. I'm not sure where the state is going
   };
 };
