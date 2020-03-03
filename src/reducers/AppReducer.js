@@ -23,12 +23,9 @@ export const appReducer = (state = initialState, action) => {
       });
       console.log("ADD FEATURE findFeature", findFeature);
       const filterFeature = state.additionalFeatures.filter(item => {
-        return findFeature.id !== item.id;
+        return item.id !== findFeature.id;
       });
-      console.log(
-        "this is in filterFeature. I need to see this",
-        filterFeature
-      );
+      console.log(filterFeature);
       return {
         ...state,
         additionalPrice: (state.additionalPrice += action.payload.price),
