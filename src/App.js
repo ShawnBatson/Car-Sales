@@ -13,7 +13,6 @@ const App = props => {
   };
 
   const buyItem = item => {
-    console.log("this is in buyItems", props.addFeature(item));
     props.addFeature(item);
     // dipsatch an action here to add an item
   };

@@ -1,5 +1,4 @@
 import React from "react";
-import { remFeature } from "../actions/actionFile";
 
 const AddedFeature = props => {
   console.log("this is in added feature, feature name props", props.feature);
@@ -8,7 +7,10 @@ const AddedFeature = props => {
       {/* Add an onClick to run a function to remove a feature */}
       <button
         className="button"
-        onClick={() => props.remFeature(props.feature)}
+        onClick={() => {
+          console.log("button clicked");
+          props.removeFeature(props.feature);
+        }}
       >
         X
       </button>
